@@ -24,7 +24,7 @@ def reservaApi(request, id=0):
     return JsonResponse("failed to Add",safe=False)
 
   elif request.method=='DELETE':
-    reserva=Reserva.objects.get(ReservaId=id)
+    reserva=Reserva.objects.get(ID=id)
     reserva.delete()
     return JsonResponse("delete sucessfull", safe=False)
 
