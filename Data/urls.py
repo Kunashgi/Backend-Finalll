@@ -10,6 +10,9 @@ urlpatterns = [
   url(r'^users/([0-9]+)$', views.usersApi),
 
   url(r'^cancelacion$', views.cancelacionApi),
-  url(r'^cancelacion/([0-9]+)$', views.cancelacionApi)
+  url(r'^cancelacion/([0-9]+)$', views.cancelacionApi),
+
+  url(r'^contact$', views.contactApi),
+  url(r'^contact/([0-9]+)$', views.contactApi),
   
 ]

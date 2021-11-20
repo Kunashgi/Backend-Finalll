@@ -30,3 +30,10 @@ class Cancelacion(models.Model):
   code = IntegerField(null=True)
   descripcionCancelacion = models.CharField(max_length=500, null=True)
   ID = models.AutoField(primary_key=True)
+  
+class Contact(models.Model):
+  name = models.EmailField()
+  email = IntegerField(null=True)
+  phone = models.CharField(max_length=12, null=True)
+  mensaje = models.CharField(max_length = 500)
+  ID = models.AutoField(primary_key=True)

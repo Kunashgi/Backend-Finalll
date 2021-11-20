@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Data.models import Reserva, Users, Cancelacion
+from Data.models import Reserva, Users, Cancelacion, Contact
 
 class ReservaSerializer(serializers.ModelSerializer):
   class Meta:
@@ -15,3 +15,8 @@ class CancelacionSerializer(serializers.ModelSerializer):
   class Meta:
     model = Cancelacion
     fields = ('email', 'code', 'descripcionCancelacion', 'ID')
+
+class ContactSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Contact
+    fields = ('name', 'email', 'phone', 'mensaje', 'ID')

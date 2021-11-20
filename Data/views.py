@@ -3,8 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from Data.models import Reserva, Users, Cancelacion
-from Data.serializers import ReservaSerializer, UsersSerializer, CancelacionSerializer
+from Data.models import Reserva, Users, Cancelacion, Contact
+from Data.serializers import ReservaSerializer, UsersSerializer, CancelacionSerializer, ContactSerializer
 
 # Create your views here.
 
@@ -69,5 +69,20 @@ def cancelacionApi(request, id=0):
     cancelacion_serializer = CancelacionSerializer(data=cancelacion_data)
     if cancelacion_serializer.is_valid():
       cancelacion_serializer.save()
+      return JsonResponse("agregado con exito,", safe=False)
+    return JsonResponse("failed to Add",safe=False)
+
+@csrf_exempt
+def contactApi(request, id=0):
+  if request.method == 'GET':
+    contact = Contact.objects.all()
+    contact_serializer = ContactSerializer(contact, many=True)
+    return JsonResponse(contact_serializer.data, safe=False)
+
+  elif request.method=='POST':
+    contact_data=JSONParser().parse(request)
+    contact_serializer = ContactSerializer(data=contact_data)
+    if contact_serializer.is_valid():
+      contact_serializer.save()
       return JsonResponse("agregado con exito,", safe=False)
     return JsonResponse("failed to Add",safe=False)
