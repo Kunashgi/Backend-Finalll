@@ -86,3 +86,4 @@ def contactApi(request, id=0):
       contact_serializer.save()
       return JsonResponse("agregado con exito,", safe=False)
     return JsonResponse("failed to Add",safe=False)
+

@@ -37,3 +37,7 @@ class Contact(models.Model):
   phone = models.CharField(max_length=12, null=True)
   mensaje = models.CharField(max_length = 500)
   ID = models.AutoField(primary_key=True)
+
+class Code(models.Model):
+  code = models.CharField(max_length=20)
+  ID = models.AutoField(primary_key=True)
