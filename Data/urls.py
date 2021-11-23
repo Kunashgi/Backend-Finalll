@@ -15,4 +15,6 @@ urlpatterns = [
   url(r'^contact$', views.contactApi),
   url(r'^contact/([0-9]+)$', views.contactApi),
   
+  url(r'^code$', views.codeApi),
+  url(r'^code/([0-9]+)$', views.codeApi),
 ]

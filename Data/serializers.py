@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Data.models import Reserva, Users, Cancelacion, Contact
+from Data.models import Code, Reserva, Users, Cancelacion, Contact
 
 class ReservaSerializer(serializers.ModelSerializer):
   class Meta:
@@ -20,3 +20,8 @@ class ContactSerializer(serializers.ModelSerializer):
   class Meta:
     model = Contact
     fields = ('name', 'email', 'phone', 'mensaje', 'ID')
+
+class CodeSerializer(serializers.ModelSerializer):
+    class Meta:
+      model = Code
+      fields = ('code', 'ID')
